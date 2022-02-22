@@ -1,5 +1,7 @@
 package tests;
 
+import models.TextBox;
+import models.TextBoxFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TextBoxPage;
@@ -9,11 +11,12 @@ public class TextBoxTest extends BaseTest {
     @Test
     public void textBoxTestPositive() {
         TextBoxPage textBoxPage = new TextBoxPage();
+        TextBox textBox = TextBoxFactory.get();
         textBoxPage.open();
-        textBoxPage.fillForm("fgdf", "fdg@mail.ru", "fgdg", "dfsdf");
-        Assert.assertEquals(textBoxPage.getCreatedName(), "fgdf");
-        Assert.assertEquals(textBoxPage.getCreatedMail(), "fdg@mail.ru");
-        Assert.assertEquals(textBoxPage.getCreatedCurAddress(), "fgdg");
-        Assert.assertEquals(textBoxPage.getCreatedPermAddress(), "dfsdf");
+        textBoxPage.fillForm(textBox);
+        Assert.assertEquals(textBoxPage.getCreatedName(), textBox.getName());
+        Assert.assertEquals(textBoxPage.getCreatedMail(), textBox.getMail());
+        Assert.assertEquals(textBoxPage.getCreatedCurAddress(), textBox.getCurAddress());
+        Assert.assertEquals(textBoxPage.getCreatedPermAddress(), textBox.getPermAddress());
     }
 }

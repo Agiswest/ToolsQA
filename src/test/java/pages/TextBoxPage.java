@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Selenide;
+import models.TextBox;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -11,11 +12,11 @@ public class TextBoxPage {
         Selenide.open("text-box");
     }
 
-    public void fillForm(String name, String mail, String curAddress, String permAddress) {
-        $("#userName").sendKeys(name);
-        $("#userEmail").sendKeys(mail);
-        $("#currentAddress").sendKeys(curAddress);
-        $("#permanentAddress").sendKeys(permAddress, Keys.PAGE_DOWN);
+    public void fillForm(TextBox formData) {
+        $("#userName").sendKeys(formData.getName());
+        $("#userEmail").sendKeys(formData.getMail());
+        $("#currentAddress").sendKeys(formData.getCurAddress());
+        $("#permanentAddress").sendKeys(formData.getPermAddress(), Keys.PAGE_DOWN);
         $("#submit").click();
     }
 
