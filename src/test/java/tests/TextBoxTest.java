@@ -14,9 +14,13 @@ public class TextBoxTest extends BaseTest {
         TextBox textBox = TextBoxFactory.get();
         textBoxPage.open();
         textBoxPage.fillForm(textBox);
-        Assert.assertEquals(textBoxPage.getCreatedName(), textBox.getName());
-        Assert.assertEquals(textBoxPage.getCreatedMail(), textBox.getMail());
-        Assert.assertEquals(textBoxPage.getCreatedCurAddress(), textBox.getCurAddress());
-        Assert.assertEquals(textBoxPage.getCreatedPermAddress(), textBox.getPermAddress());
+        Assert.assertEquals(textBoxPage.getCreatedName(), textBox.getName(),
+                "Created name is incorrect or not displayed");
+        Assert.assertEquals(textBoxPage.getCreatedMail(), textBox.getMail(),
+                "Created email is incorrect or not displayed");
+        Assert.assertEquals(textBoxPage.getCreatedCurAddress(), textBox.getCurAddress(),
+                "Created current address is incorrect or not displayed");
+        Assert.assertEquals(textBoxPage.getCreatedPermAddress(), textBox.getPermAddress(),
+                "Created permanent address is incorrect or not displayed");
     }
 }
