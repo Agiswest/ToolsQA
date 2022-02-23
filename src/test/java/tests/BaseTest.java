@@ -1,18 +1,24 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
-import java.lang.reflect.Method;
 
 public class BaseTest {
 
     @BeforeMethod
-    public void setup(Method method) {
+    public void setup() {
         Configuration.timeout = 6000;
         Configuration.browser = "chrome";
         Configuration.baseUrl = "https://demoqa.com/";
         Configuration.startMaximized = true;
         Configuration.headless = false;
+        Configuration.clickViaJs = true;
+    }
+
+    @AfterMethod
+    public void closeDriver() {
+        WebDriverRunner.closeWebDriver();
     }
 }
