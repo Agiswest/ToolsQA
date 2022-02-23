@@ -1,10 +1,10 @@
 package models;
 
 public class TextBox {
-    String name;
-    String mail;
-    String curAddress;
-    String permAddress;
+    private String name;
+    private String mail;
+    private String curAddress;
+    private String permAddress;
 
     public String getName() {
         return name;
