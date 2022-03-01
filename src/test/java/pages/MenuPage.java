@@ -1,7 +1,6 @@
 package pages;
 
 import com.codeborne.selenide.Selenide;
-import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.$x;
 

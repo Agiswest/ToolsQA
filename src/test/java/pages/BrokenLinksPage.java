@@ -7,7 +7,6 @@ import com.codeborne.selenide.WebDriverRunner;
 
 import java.util.Objects;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class BrokenLinksPage {
