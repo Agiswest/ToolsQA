@@ -23,7 +23,7 @@ public class SelectMenuPage {
                 .click()
                 .build()
                 .perform();
-        String firstOption = new SelectMenuPage().selectRandomOption();
+        String firstOption = new SelectMenuPage().getRandomOption();
         Selenide.actions()
                 .moveToElement($("#withOptGroup"))
                 .click()
@@ -39,7 +39,7 @@ public class SelectMenuPage {
                 .click()
                 .build()
                 .perform();
-        String firstOption = new SelectMenuPage().selectRandomOption();
+        String firstOption = new SelectMenuPage().getRandomOption();
         Selenide.actions()
                 .moveToElement($("#selectOne"))
                 .click()
@@ -56,8 +56,8 @@ public class SelectMenuPage {
 
     public void multiselectDropDown() {
         $("#react-select-4-input").sendKeys("e");
-        String firstOption = new SelectMenuPage().selectRandomOption();
-        String secondOption = new SelectMenuPage().selectRandomOption();
+        String firstOption = new SelectMenuPage().getRandomOption();
+        String secondOption = new SelectMenuPage().getRandomOption();
         $("#react-select-4-input").clear();
         $("#react-select-4-input").sendKeys(firstOption);
         $("#react-select-4-input").sendKeys(Keys.ENTER);
@@ -74,7 +74,7 @@ public class SelectMenuPage {
         return select.getOptions().get(new Random().nextInt(select.getOptions().size() - 1));
     }
 
-    private String selectRandomOption() {
+    private String getRandomOption() {
         String[] options = $x(baseLocator + "//div[contains(@class,'menu')]").
                 getText().split("\n");
         return options[new Random().nextInt(options.length - 1)];
