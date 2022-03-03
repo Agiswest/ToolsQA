@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProfilePage;
+import utils.PropertyReader;
 
 public class LoginTest extends BaseTest {
 
@@ -11,7 +12,8 @@ public class LoginTest extends BaseTest {
     public void loginTestPositive() {
         LoginPage loginPage = new LoginPage();
         loginPage.open();
-        loginPage.login("test",  "testPass1112$");
+        loginPage.login(PropertyReader.getProperty("demoqa.user"),
+                PropertyReader.getProperty("demoqa.pass"));
         Assert.assertTrue(new ProfilePage().isPageOpened());
     }
 }
