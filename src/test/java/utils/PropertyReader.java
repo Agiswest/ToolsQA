@@ -1,5 +1,6 @@
 package utils;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -51,5 +52,15 @@ public final class PropertyReader {
 
     public static String getProperty(String propertyName) {
         return loadProperties().getProperty(propertyName);
+    }
+
+    public static void setProperty(String propertyName, String propertyValue) {
+
+        loadProperties().setProperty(propertyName, propertyValue);
+        try {
+            loadProperties().store(new FileOutputStream("src/test/resources" + getCorrectPath()), "");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
