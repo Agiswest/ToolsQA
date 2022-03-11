@@ -14,6 +14,7 @@ public class CheckBoxTest extends BaseTest {
         checkBoxPage.open();
         checkBoxPage.openAllCheckboxes();
         checkBoxPage.selectFileFromCheckboxList(checkboxTitle);
-        Assert.assertTrue(checkBoxPage.isCheckboxSelected(checkboxTitle));
+        Assert.assertTrue(checkBoxPage.isCheckboxSelected(checkboxTitle),
+                "Checkbox is not selected or disabled");
     }
 }
